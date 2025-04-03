@@ -284,7 +284,7 @@ module.exports = {
                if (!isNumber(user.lastlatih)) user.lastlatih = 0
             } else db.data.users[m.sender] = {
                exp: 100,
-               limit: 20,
+               limit: 10,
                joinlimit: 1,
                spammer: 0,
                limitspam: 0,
@@ -589,9 +589,9 @@ module.exports = {
                if (!'game' in settings) settings.game = false
                if (!'rpg' in settings) settings.rpg = false
                if (!isNumber(settings.style)) settings.style = 2
-               if (!'owners' in settings) settings.owners = ['6281252848955', '6285815700861']
-               if (!'link' in settings) settings.link = 'https://whatsapp.com/channel/0029Va9dXn43mFY0QpulQ60K'
-               if (!'cover' in settings) settings.cover = 'https://iili.io/JAt7vf4.jpg'
+               if (!'owners' in settings) settings.owners = ['6281284760551', '6281284760551']
+               if (!'link' in settings) settings.link = 'https://avatars.githubusercontent.com/u/85196372?s=400&u=23b0e3ebc33411ebae2c71f9931c6866d9aeaa0c&v=4.jpg'
+               if (!'cover' in settings) settings.cover = 'https://avatars.githubusercontent.com/u/85196372?s=400&u=23b0e3ebc33411ebae2c71f9931c6866d9aeaa0c&v=4.jpg'
             } else db.data.settings[this.user.jid] = {
                anticall: true,
                self: true,
@@ -604,8 +604,8 @@ module.exports = {
                rpg: false,
                style: 2,
                owners: ['6281252848955', '6285815700861'],
-               link: 'https://whatsapp.com/channel/0029Va9dXn43mFY0QpulQ60K',
-               cover: 'https://iili.io/JAt7vf4.jpg'
+               link: 'https://avatars.githubusercontent.com/u/85196372?s=400&u=23b0e3ebc33411ebae2c71f9931c6866d9aeaa0c&v=4.jpg',
+               cover: 'https://avatars.githubusercontent.com/u/85196372?s=400&u=23b0e3ebc33411ebae2c71f9931c6866d9aeaa0c&v=4.jpg'
             }
          } catch (e) {
             console.error(e)
