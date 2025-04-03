@@ -1,5 +1,5 @@
 /** enter owner number */
-global.owner = ['6281252848955']
+global.owner = ['6281284760551']
 /** https://api.alyachan.pro/pricing */
 global.APIs = {
    alya: 'https://api.alyachan.dev'
@@ -9,15 +9,15 @@ global.APIKeys = {
 }
 /** option setting */
 global.set = {
-   wm: `© moon-bot v${require('./package.json').version}`,
-   footer: 'ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ ᴍᴏᴏɴ',
+   wm: `Rinz AI v${require('./package.json').version}`,
+   footer: 'Recode By Rinz ~',
    packname: 'Sticker By',
-   author: 'moon-bot'
+   author: 'Rinz AI'
 }
 /** enter your bot number to login using the code */
 global.pairing = {
-   state: false,
-   number: 6281252848955
+   state: true,
+   number: 639636201589
 }
 /** mongodb url */
 global.mongouri = ''
