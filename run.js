@@ -1,6 +1,3 @@
-var bs = require('child_process')
-process.env.TZ = 'Asia/Jakarta'
-
-bs.spawn('bash', [], {
+require('child_process').spawn('bash', [], {
   stdio: ['inherit', 'inherit', 'inherit', 'ipc']
 })

@@ -1,25 +1,20 @@
-const axios = require('axios')
-const chalk = require('chalk')
+const { Functions: Func } = new (require('@moonr/utils'))
+const http = require('http')
 const express = require('express')
 const app = express()
-const http = require('http')
 const PORT = process.env.PORT || 8080
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
-let i = 0
 
-const runServer = async () => {
-   app.get('/', (req, res) => res.send('Server Active!'))
-   const server = http.createServer(app)
-   server.listen(PORT, () => console.log(chalk.yellowBright.bold('Connected to server --', PORT)))
-   while (true) {
-      i++
-      try {
-         // add your server link on config,json for run 24×7hours. If you are deploying on replit
-         let response = await axios(global.replit_url || 'https://google.com')
-         if (global.replit_url) console.log(chalk.yellowBright.bold('Server wake-up! --', response.status))
-         await sleep(30_000)
-      } catch { }
-   }
+const server = async () => {
+   app.get('/', async (req, res) => {
+      res.status(200).json({
+         status: true,
+         data: {
+            uptime: Func.toTime(process.uptime() * 1000),
+            timestamp: new Date().toISOString()
+         }
+      })
+   })
+   const index = http.createServer(app)
+   index.listen(PORT, () => console.log(`Server is running -- ${PORT}`))
 }
-
-runServer().then(() => runServer())
+server().catch(() => server())

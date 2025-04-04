@@ -1,128 +1,190 @@
-### MOON-BOT
-> This script is 100% free, which uses the api from [AlyaChan-APIs](https://api.alyachan.pro)
+### MOON BOT
+> This script is 100% free, which uses the api from [AlyaChan-APIs](https://api.alyachan.dev)
 
-### To install this script you need
+
+**Group** : [Community](https://chat.whatsapp.com/G57unQZ7saFIq2rdpVw0Tu)
+
+
+### Requirements
+
 - [x] Server vCPU/RAM 1/1GB (Min)
 - [x] NodeJS
 - [x] FFMPEG
 - [x] WhatsApp 
-- [x] Apikey (buy at api.alyachan.dev/pricing)
+- [x] Apikey
 
-**Creator / Group** : [Nando](https://wa.me/6281252848955) / [Community](https://chat.whatsapp.com/G57unQZ7saFIq2rdpVw0Tu)
 
-### Set in config.js
+### Server
+
+- [x] [Heroku](https://heroku.com/) (Recommended)
+- [x] VPS/RDP [DigitalOcean](https://digitalocean.com/)
+- [x] VPS NAT [HostData](https://hostdata.id/)
+- [x] Panel [Optiklink](https://optiklink.com/)
+
+Note : 
+- Do not use fake panels, usually have bocil JB, use trusted panels, there is a price there is quality
+- Jangan menggunakan panel abal abal, biasanya punya bocil JB, gunakanlah panel yang terpercaya, ada harga ada kualitas
+
+### Database
+
+- [x] [MongoDB](https://mongodb.com) (Recommended)
+- [x] PostgreSQL [Supebase](https://supebase.com)
+- [x] PostgreSQL / MongoDB [Railway](https://railway.app) (For testing)
+
+
+### Configuration
+
+There are 3 files that can be changed [.env](/.env), [config.json](/config.json) and [config.js](/lib/system/config.js)
+
+
+```.env
+DATABASE_URL = ''
+API_ENDPOINT = 'https://api.alyachan.dev/'
+API_KEY = 'yourkey'
+```
+```json
+{
+   "owner": "6281252848955",
+   "owner_name": "Contact Support",
+   "limit": "10",
+   "multiplier": "250",
+   "min_reward": 5000,
+   "max_reward": 20000,
+   "ram_limit": "1.2GB",
+   "max_upload": 150,
+   "max_upload_free": 40,
+   "timer": 120000,
+   "timeout": 1800000,
+   "evaluate_chars": ["=>", ">", "$", "~>", "!", "+", "/", "#", "."],
+   "pairing": {
+     "state": false,
+     "number": 62000
+   }
+}
+```
+
 ```Javascript
-/** enter owner number */
-global.owner = ['6281252848955']
-/** https://api.alyachan.pro/pricing */
-global.APIs = {
-  alya: 'https://api.alyachan.dev'
+global.header = `moon-bot v${require('../../package.json').version}`
+global.footer = Func.Styles('simple whatsapp bot made by moon')
+```
+
+### For Heroku users
+
+Install buildpack
+
+- Heroku/Nodejs
+- Heroku/Python
+- https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
+- https://github.com/DuckyTeam/heroku-buildpack-imagemagick.git
+
+### For Windows / RDP users
+
+- Download and install Git [here](https://git-scm.com/downloads)
+- Download and install NodeJS [here](https://nodejs.org/en/download)
+- Download and install FFMPEG [here](https://ffmpeg.org/download.html)
+- Download and install ImageMagick [here](https://imagemagick.org/script/download.php)
+
+### Installation & Run
+
+```bash
+$ bash install.sh
+$ git clone https://github.com/rifnd/moon-bot
+$ cd moon-bot
+$ npm install
+$ node .
+```
+
+### Use PM2
+
+```bash
+$ pm2 start index.js --name "mybot"
+```
+
+### Pairing Code
+
+```Json
+{
+   "pairing": {
+     "state": false, /** true to enable, false to disable */
+     "number": 62000 /** here's the bot number */
+   },
 }
-global.APIKeys = {
-  'https://api.alyachan.dev': 'yourkey'
-}
-/** option setting */
-global.set = {
-  wm: `© moon-bot v${require('./package.json').version}`,
-  footer: 'ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ ᴍᴏᴏɴ',
-  packname: 'Sticker By',
-  author: 'moon-bot'
-}
-/** enter your bot number to login using the code */
-global.pairingNumber = 6283867587556
-/** enter your replit link, so it's active 24/7 */
-global.replit_url = ''
-/** the bigger it gets the harder it is to level up */
-global.multiplier = 1000
-/** maximum limit to send files */
-global.max_upload = 70
-/** maximum 2GB ram, do the math yourself */
-global.ram_usage = 2100000000
 ```
 
 ### Plugins
+
+Note :
+- Works with old and new plugins
+- Bisa untuk plugin lama dan plugin baru
+
 ```Javascript
-let handler = async(m, {
-  conn,
-  usedPrefix,
-  command,
-  args,
-  text,
-  users,
-  isOwner,
-  isPrem
-}) => {
-  try {
-    // Create your imagination
-  } catch {
-    console.log(e)
-    return conn.reply(m.chat, Func.jsonFormat(e), m)
-  }
+module.exports = {
+   help: ['display'],
+   tags: ['category'],
+   command: ['command'],
+   run: async (m, {
+      conn,
+      usedPrefix,
+      prefixes,
+      command,
+      args,
+      text,
+      body,
+      plugins,
+      Scraper,
+      Func
+   }) => {
+      const raimu = require('jancok')
+      console.log(raimu.asu)
+   },
+   limit: Boolean,
+   premium: Boolean,
+   group: Boolean,
+   private: Boolean,
+   owner: Boolean,
+   admin: Boolean,
+   botAdmin: Boolean,
+   register: Boolean
 }
-handler.help = ['command'] // display in the menu
-handler.tags = ['category'] // category
-handler.command = /^(command)$/i // command
-handler.group = Boolean // for group
-handler.limit = Boolean // use limit
-handler.game = Boolean // game mode
-handler.rpg = Boolean // rpg mode
-handler.owner = Boolean // for owner
-handler.admin = Boolean // for admin
-handler.botAdmin = Boolean // bot must be an admin
-handler.premium = Boolean // premium only
-handler.private = Boolean // private chat only
 ```
 
-### Plugins Event
+### Plugins Events
+
 ```Javascript
-let handler = (m) => m
-handler.before = async (m, {
-  conn
-}) {
-  try {
-    // Create your imagination
-  } catch (error) {
-    console.log(error)
-  }
-  return !0
+module.exports = {
+   async before(m, {
+      conn,
+      Scraper,
+      Func
+   }) {
+      try {
+         const raimu = require('jancok')
+         console.log(raimu.ancok)
+      } catch (e) {
+         console.log(e)
+      }
+      return true
+   }
 }
-module.exports = handler
 ```
 
-### Install and run
+### External Session
+
+Install depedency
+```bash
+$ npm install session@github:neoxr/session#mongodb 
 ```
-$ npm install
-$ npm start
+in main.js
+```Javascript
+const { useMongoAuthState } = require('session')
+const conn = new Connection({
+   directory: 'plugins',
+   session: useMongoAuthState(process.env.DATABASE_URL, 'session'),
+   online: false,
+   browser: ['Ubuntu', 'Chrome', '20.0.04']
+})
 ```
 
-## Install & Run use PM2
+<p align="center">This script is still in development and will continue to be updated, keep an eye on this repository, don't forget to give stars and forks</p>
 
-```
-$ npm install pm2 -g
-$ npm install
-$ pm2 start index.js && pm2 save && pm2 logs
-```
-
-## Heroku Buildpack
-
-```
-heroku/nodejs
-```
-```
-https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
-```
-```
-https://github.com/DuckyTeam/heroku-buildpack-imagemagick.git
-```
-
-### Argument node . [--options]
-
-+ ``` node . --pairing ``` : For those of you who login using a code, use this command in the terminal
-+ ``` node . --db 'mongodb uri' ``` : If you want to connect the database to mongodb use this command
-+ ``` node . --server ``` : if you want to use replit
-
-### Thanks To
-<a href="https://api.alyachan.dev"><img src="https://telegra.ph/file/8ee315efa49035e1c5e94.jpg" width="100" height="100"></a> | [![Nurutomo](https://github.com/Nurutomo.png?size=100)](https://github.com/Nurutomo) | [![Nando](https://github.com/rifnd.png?size=100)](https://github.com/rifnd)
-----|----|----|----|----
-[ALYACHAN](https://api.alyachan.dev/) | [Nurutomo](https://github.com/Nurutomo) | [Nando](https://github.com/rifnd)
-APIs Provider | Author / Creator
+<p align="center">Adios.....</p>

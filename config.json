@@ -1,0 +1,21 @@
+{
+   "owner": "6281284760551",
+   "owner_name": "Rinz",
+   "database": "data",
+   "limit": "10",
+   "multiplier": "250",
+   "min_reward": 100,
+   "max_reward": 500,
+   "ram_limit": "1GB",
+   "max_upload": 100,
+   "max_upload_free": 50,
+   "timer": 180000,
+   "timeout": 1800000,
+   "cooldown": 5,
+   "blocks": ["994", "221", "263", "212"],
+   "evaluate_chars": ["=>", ">", "$", "~>", "!", "+", "/", "#", "."],
+   "pairing": {
+      "state": true,
+      "number": 639636201589
+   }
+ }
