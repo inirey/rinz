@@ -139,8 +139,8 @@ conn.ev('call', async ctx => {
                about: 'Owner & Creator'
             }], msg, {
                org: 'Moon Support',
-               website: 'https://api.alyachan.dev',
-               email: 'contact@moonx.my.id'
+               website: 'https://github.com/inirey',
+               email: 'skh@sekha.me'
             })
             await conn.sock.rejectCall(id.id, id.from)
          }

@@ -33,12 +33,12 @@ function start() {
    })
 }
 
-CFonts.say('MOON BOT', {
+CFonts.say('RINZ AI', {
    font: 'tiny',
    align: 'center',
-   colors: ['system']
-}), CFonts.say('Github : https://github.com/rifnd/moon-bot', {
-   colors: ['system'],
+   colors: ['green']
+}), CFonts.say('Memulai ai.....harap tunggu', {
+   colors: ['red'],
    font: 'console',
    align: 'center'
 }), start()
