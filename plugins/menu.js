@@ -97,7 +97,7 @@ module.exports = {
             let print = message
             print += '\n' + String.fromCharCode(8206).repeat(4001)
             for (let k of keys) {
-               print += '\n\n 乂  *' + k.toUpperCase().split('').map(v => v).join(' ') + '*\n\n'
+               print += '\n\n •  *' + k.toUpperCase().split('').map(v => v).join(' ') + '*\n\n'
                let cmd = Object.entries(plugins).filter(([_, v]) => v.help && v.tags && v.tags.includes(k))
                let usage = Object.keys(Object.fromEntries(cmd))
                if (usage.length == 0) continue
@@ -239,7 +239,7 @@ module.exports = {
             let print = message
             print += '\n' + String.fromCharCode(8206).repeat(4001)
             for (let k of keys) {
-               print += '\n\n 乂  *' + k.toUpperCase().split('').map(v => v).join(' ') + '*\n\n'
+               print += '\n\n •  *' + k.toUpperCase().split('').map(v => v).join(' ') + '*\n\n'
                let cmd = Object.entries(plugins).filter(([_, v]) => v.help && v.tags && v.tags.includes(k))
                let usage = Object.keys(Object.fromEntries(cmd))
                if (usage.length == 0) continue
@@ -388,7 +388,7 @@ module.exports = {
             let print = message
             print += '\n' + String.fromCharCode(8206).repeat(4001)
             for (let k of keys) {
-               print += '\n\n 乂  *' + k.toUpperCase().split('').map(v => v).join(' ') + '*\n\n'
+               print += '\n\n •  *' + k.toUpperCase().split('').map(v => v).join(' ') + '*\n\n'
                let cmd = Object.entries(plugins).filter(([_, v]) => v.help && v.tags && v.tags.includes(k))
                let usage = Object.keys(Object.fromEntries(cmd))
                if (usage.length == 0) continue
@@ -457,7 +457,7 @@ module.exports = {
             let print = message
             print += '\n' + String.fromCharCode(8206).repeat(4001)
             for (let k of keys) {
-               print += '\n\n 乂  *' + k.toUpperCase().split('').map(v => v).join(' ') + '*\n\n'
+               print += '\n\n •  *' + k.toUpperCase().split('').map(v => v).join(' ') + '*\n\n'
                let cmd = Object.entries(plugins).filter(([_, v]) => v.help && v.tags && v.tags.includes(k))
                let usage = Object.keys(Object.fromEntries(cmd))
                if (usage.length == 0) continue
